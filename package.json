@@ -1,0 +1,41 @@
+{
+  "name": "react-multi-clamp",
+  "version": "1.0.0-beta.0",
+  "description": "Simple, efficient and easy-to-use multiline text clamp react component",
+  "main": "lib/MultiClamp.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "clean": "rm -rf ./lib",
+    "lint": "eslint --ext .js,.jsx src/",
+    "prepublish": "npm run lint && npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackyr/react-multi-clamp.git"
+  },
+  "keywords": [
+    "react",
+    "multi",
+    "multiline",
+    "clamp",
+    "ellipsis"
+  ],
+  "author": "jackyr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackyr/react-multi-clamp/issues"
+  },
+  "homepage": "https://github.com/jackyr/react-multi-clamp#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.8.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  }
+}
