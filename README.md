@@ -8,19 +8,19 @@ Default multiline text clamp:
 
 默认多行文本裁剪效果：
 
-![Default multiline text clamp](./example/sample1.png)
+![Default multiline text clamp](https://raw.githubusercontent.com/jackyr/react-multi-clamp/master/example/sample1.png)
 
 Custom ellipsis:
 
 自定义省略符号：
 
-![Custom ellipsis](./example/sample2.png)
+![Custom ellipsis](https://raw.githubusercontent.com/jackyr/react-multi-clamp/master/example/sample2.png)
 
 Resversed clamp:
 
 反向裁剪：
 
-![Resversed clamp](./example/sample3.png)
+![Resversed clamp](https://raw.githubusercontent.com/jackyr/react-multi-clamp/master/example/sample3.png)
 
 ## Browser compatibility
 Supports IE9+ / Android4.4+ / etc. ES5 enviroment.
@@ -32,7 +32,7 @@ You can install react-multi-clamp from npm.
 
 你可以从npm安装react-multi-clamp组件。
 
-```shell
+```sh
 npm install react-multi-clamp --save
 ```
 
@@ -41,11 +41,11 @@ Import(ES6) or require(ES5) react-multi-clamp.
 
 引入react-multi-clamp组件。
 
-```javascript
+```js
 import MultiClamp from 'react-multi-clamp';
 ```
 
-```javascript
+```js
 var MultiClamp = require('react-multi-clamp');
 ```
 
@@ -77,3 +77,16 @@ You can clamp the content from back to front, the ellipsis will be in the front.
 React-multi-clamp will use native css clamp(-webkit-line-clamp) in supported browser when the ellipsis is set to '...'. If you don't want to use css clamp, set disableCssClamp to true. default: false
 
 当ellipsis被设置为'...'时，组件会默认优先使用webkit的原生css裁剪（-webkit-line-clamp），如果想禁用css裁减，请将disableCssClamp设置为true。默认为：false
+
+## Development and testing
+从github仓库克隆代码进行开发调试
+
+```sh
+git clone git@github.com:jackyr/react-multi-clamp.git
+cd react-multi-clamp
+npm install
+npm start
+```
+
+## License
+MIT
