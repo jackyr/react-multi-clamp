@@ -1,6 +1,9 @@
-*
-!/lib/
-!/src/
-!LICENSE
-!package.json
-!README.md
+build/
+src/
+example/
+.babelrc
+.eslintignore
+.eslintrc
+.gitignore
+.npmignore
+webpack.config.js

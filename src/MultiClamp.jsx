@@ -22,6 +22,7 @@ const Clamp = class extends React.Component {
       PropTypes.number,
     ]),
     reverse: PropTypes.bool,
+    splitByWords: PropTypes.bool,
     disableCssClamp: PropTypes.bool,
     lineTextLen: PropTypes.oneOfType([
       PropTypes.string,
@@ -32,6 +33,7 @@ const Clamp = class extends React.Component {
     ellipsis: '...',
     clamp: 3,
     reverse: false,
+    splitByWords: false,
     disableCssClamp: false,
   }
   constructor(props) {
@@ -41,14 +43,13 @@ const Clamp = class extends React.Component {
       throw new Error('Invaild clamp number!');
     }
     this.hasCssClamp = !props.disableCssClamp && !props.reverse && props.ellipsis === '...' && typeof document.body.style.webkitLineClamp !== 'undefined';
-    this.getSingleLineHeight = this.getSingleLineHeight.bind(this);
     this.state = {};
   }
   shouldComponentUpdate(nextProps) {
     const nextChildren = nextProps.children;
     const children = this.props.children;
-    if (children instanceof Array) {
-      return !(nextChildren instanceof Array) || nextChildren.join('') !== children.join('');
+    if (Array.isArray(children)) {
+      return !Array.isArray(nextChildren) || nextChildren.join('') !== children.join('');
     }
     return children !== nextChildren;
   }
@@ -81,10 +82,10 @@ const Clamp = class extends React.Component {
     }
   }
   clamp() {
-    const { children, reverse, lineTextLen } = this.props;
-    const text = children instanceof Array ? children.join('') : children;
+    const { children, splitByWords, lineTextLen } = this.props;
+    const text = Array.isArray(children) ? children.join('') : children;
     if (text === undefined || this.hasCssClamp) return;
-    
+
     const currentHeight = getHeight(this.wrapper);
     const singleLineHeight = this.getSingleLineHeight();
     if (!currentHeight || !singleLineHeight) return;
@@ -94,25 +95,31 @@ const Clamp = class extends React.Component {
 
     if (currentHeight > maxHeight) {
       this.ellipsis.style.display = '';
-      this.textSlice(text, maxHeight, reverse, defaultIncrease, 0, false);
+      const trunk = splitByWords ? text.match(/\w+|\W+?/g) : text;
+      this.trunkSlice(trunk, maxHeight, defaultIncrease, 0, false);
     } else {
       this.ellipsis.style.display = 'none';
     }
   }
-  textSlice(text, maxHeight, reverse, increase, len, isDecrease) {
-    let i;
-    
-    setText(this.content, reverse ? text.substring(text.length - len) : text.substring(0, len));
+  trunkSlice(trunk, maxHeight, increase, len, isDecrease) {
+    const { reverse, splitByWords } = this.props;
+    const slicedTrunk = reverse ? trunk.slice(trunk.length - len) : trunk.slice(0, len);
 
+    setText(this.content, splitByWords ? slicedTrunk.join('') : slicedTrunk);
+
+    let i;
     if (getHeight(this.wrapper) > maxHeight) {
       i = isDecrease ? increase : int(increase / 2) || 1;
-      this.textSlice(text, maxHeight, reverse, i, len - i, true);
+      this.trunkSlice(trunk, maxHeight, i, len - i, true);
     } else {
       if (increase === 1 && isDecrease) {
+        if (splitByWords && /\s/.test(slicedTrunk[reverse ? 0 : slicedTrunk.length - 1])) {
+          setText(this.content, (reverse ? slicedTrunk.slice(1) : slicedTrunk.slice(0, slicedTrunk.length - 1)).join(''));
+        }
         return;
       }
       i = isDecrease ? int(increase / 2) || 1 : increase;
-      this.textSlice(text, maxHeight, reverse, i, len + i, false);
+      this.trunkSlice(trunk, maxHeight, i, len + i, false);
     }
   }
   render() {

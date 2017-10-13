@@ -9,11 +9,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MultiClamp ellipsis="..." clamp="3">{text1}</MultiClamp>
+        <MultiClamp>{text1}</MultiClamp>
         <br />
-        <MultiClamp clamp="3" ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>}>{text1}</MultiClamp>
+        <MultiClamp disableCssClamp>{text1}</MultiClamp>
         <br />
-        <MultiClamp clamp="2" reverse>{text2}</MultiClamp>
+        <MultiClamp clamp="2" ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>} splitByWords>{text1}</MultiClamp>
+        <br />
+        <MultiClamp clamp="2" ellipsis="……">{text2}</MultiClamp>
+        <br />
+        <MultiClamp clamp="2" ellipsis="……" reverse>{text2}</MultiClamp>
       </div>
     );
   }

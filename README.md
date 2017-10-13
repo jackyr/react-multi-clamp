@@ -1,7 +1,7 @@
 # react-multi-clamp [![npm](https://img.shields.io/npm/v/react-multi-clamp.svg?style=flat-square)](https://www.npmjs.com/package/react-multi-clamp)
-Simple, efficient and easy-to-use multiline text clamp react component.
+Simple, efficient and easy-to-use multiline text clamp react component. (supports reverse clamp)
 
-简单、高效、易用的多行文本裁剪react组件。
+简单、高效、易用的多行文本裁剪react组件。（支持反向裁剪）
 
 ## Samples
 Default multiline text clamp:
@@ -16,7 +16,7 @@ Custom ellipsis:
 
 ![Custom ellipsis](https://raw.githubusercontent.com/jackyr/react-multi-clamp/master/example/sample2.png)
 
-Resversed clamp:
+Resverse clamp:
 
 反向裁剪：
 
@@ -37,7 +37,7 @@ npm install react-multi-clamp --save
 ```
 
 ## Usage
-Import(ES6) or require(ES5) react-multi-clamp.
+Import react-multi-clamp.
 
 引入react-multi-clamp组件。
 
@@ -45,16 +45,12 @@ Import(ES6) or require(ES5) react-multi-clamp.
 import MultiClamp from 'react-multi-clamp';
 ```
 
-```js
-var MultiClamp = require('react-multi-clamp');
-```
-
 Just wrap the content in react-multi-clamp component.
 
 将要裁减的内容包裹起来即可。
 
 ```html 
-<MultiClamp ellipsis="..." clamp="3">React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</MultiClamp>
+<MultiClamp ellipsis="..." clamp="3">{longText}</MultiClamp>
 ```
 
 ## Options
@@ -72,6 +68,11 @@ The max number of lines to show. default: 3
 You can clamp the content from back to front, the ellipsis will be in the front. default: false
 
 是否反向裁剪。反向将从后往前裁剪，ellipsis符号会显示在最前面。默认为：false
+
+#### `splitByWords`: PropTypes.bool
+The default behavior is to split by letters. If you want to split by words, set splitByWords to true. default: false
+
+组件对于英文文本默认按字符进行裁剪。如果希望按单词裁剪，请将splitByWords设置为true。默认为：false
 
 #### `disableCssClamp`: PropTypes.bool
 React-multi-clamp will use native css clamp(-webkit-line-clamp) in supported browser when the ellipsis is set to '...'. If you don't want to use css clamp, set disableCssClamp to true. default: false
