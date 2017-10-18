@@ -1,5 +1,7 @@
 .App {
-  width: 500px;
+  width: 460px;
   margin: 0 auto;
+  font-family: 'Helvetica';
+  font-size: 16px;
   line-height: 1.5;
 }

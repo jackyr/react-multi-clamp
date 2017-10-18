@@ -13,11 +13,11 @@ class App extends Component {
         <br />
         <MultiClamp disableCssClamp>{text1}</MultiClamp>
         <br />
-        <MultiClamp clamp="2" ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>} splitByWords>{text1}</MultiClamp>
+        <MultiClamp clamp={2} ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>} splitByWords>{text1}</MultiClamp>
         <br />
-        <MultiClamp clamp="2" ellipsis="……">{text2}</MultiClamp>
+        <MultiClamp clamp={1} ellipsis="……" reverse>{text2}</MultiClamp>
         <br />
-        <MultiClamp clamp="2" ellipsis="……" reverse>{text2}</MultiClamp>
+        <MultiClamp clamp="auto" style={{ height: '96px' }}>{text2}</MultiClamp>
       </div>
     );
   }
