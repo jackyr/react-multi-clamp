@@ -36,25 +36,39 @@ const Clamp = class extends React.Component {
     splitByWords: false,
     disableCssClamp: false,
   }
-  shouldComponentUpdate(nextProps) {
-    const nextChildren = nextProps.children;
-    const children = this.props.children;
-    if (Array.isArray(children)) {
-      return !Array.isArray(nextChildren) || nextChildren.join('') !== children.join('');
-    }
-    return children !== nextChildren;
+  constructor(props) {
+    super(props);
+    this.state = {
+      ellipsisInit: true,
+    };
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (!nextState.ellipsisInit) return true;
+    return this.diffChildren(nextProps, this.props);
   }
   componentDidMount() {
-    let ellipsisHtm = this.ellipsis.innerHTML;
-    this.ellipsis.parentNode.removeChild(this.ellipsis);
-
-    this.multiClamp = new MultiClamp(this.wrapper, {
-      ...this.props,
-      ellipsis: ellipsisHtm,
+    const ellipsisHtm = this.ellipsis.innerHTML;
+    this.setState({
+      ellipsisInit: false,
+    }, () => {
+      this.multiClamp = new MultiClamp(this.wrapper, {
+        ...this.props,
+        ellipsis: ellipsisHtm,
+      });
     });
   }
-  componentDidUpdate() {
-    this.multiClamp.reload();
+  componentDidUpdate(prevProps) {
+    if (this.diffChildren(this.props, prevProps)) {
+      this.multiClamp.reload();
+    }
+  }
+  diffChildren(nextProps, prevProps) {
+    const nextChildren = nextProps.children;
+    const prevChildren = prevProps.children;
+    if (Array.isArray(prevChildren)) {
+      return !Array.isArray(nextChildren) || nextChildren.join('') !== prevChildren.join('');
+    }
+    return prevChildren !== nextChildren;
   }
   render() {
     const { className, style, children, ellipsis } = this.props;
@@ -64,11 +78,12 @@ const Clamp = class extends React.Component {
       style={style}
       ref={ref => { this.wrapper = ref; }}
     >
-      {children}
-      <span
-        style={{ display: 'none' }}
-        ref={ref => { this.ellipsis = ref; }}
-      >{ellipsis}</span>
+      {
+        this.state.ellipsisInit ? <div
+          style={{ display: 'none' }}
+          ref={ref => { this.ellipsis = ref; }}
+        >{ellipsis}</div> : children
+      }
     </div>);
   }
 };
