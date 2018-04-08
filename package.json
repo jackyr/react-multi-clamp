@@ -9,6 +9,7 @@
     "dev": "webpack-dev-server",
     "lint": "eslint --ext .js,.jsx src/",
     "prepublish": "npm run lint && npm run clean && npm run build",
+    "site": "webpack --output-path site",
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
