@@ -1,6 +1,7 @@
 build/
 src/
 example/
+site/
 .babelrc
 .eslintignore
 .eslintrc
