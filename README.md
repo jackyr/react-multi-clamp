@@ -26,7 +26,7 @@ Reverse clamp:
 
 ![Reversed clamp](https://raw.githubusercontent.com/jackyr/react-multi-clamp/master/example/sample3.png)
 
-[Demo Page](https://jackyr.github.io/react-multi-clamp/site/index.html)
+[Demo Page](https://jackyr.github.io/react-multi-clamp/site/)
 
 ## Browser compatibility
 Supports IE9+ / Android4.4+ / etc. ES5 enviroment.
