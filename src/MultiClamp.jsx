@@ -43,7 +43,7 @@ const Clamp = class extends React.Component {
     };
   }
   shouldComponentUpdate(nextProps, nextState) {
-    if (!nextState.ellipsisInit) return true;
+    if (this.state.ellipsisInit && !nextState.ellipsisInit) return true;
     return this.diffChildren(nextProps, this.props);
   }
   componentDidMount() {
