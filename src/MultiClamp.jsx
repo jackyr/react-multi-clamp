@@ -4,8 +4,6 @@ import MultiClamp from 'multi-clamp';
 
 const Clamp = class extends React.Component {
   static propTypes = {
-    className: PropTypes.any,
-    style: PropTypes.any,
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.oneOfType([
@@ -71,11 +69,11 @@ const Clamp = class extends React.Component {
     return prevChildren !== nextChildren;
   }
   render() {
-    const { className, style, children, ellipsis } = this.props;
-
+    const { children, ellipsis } = this.props;
+    const props = { ...this.props };
+    'key|ellipsis|clamp|reverse|splitByWords|disableCssClamp|lineTextLen'.split('|').forEach(v => delete props[v]);
     return (<div
-      className={className}
-      style={style}
+      {...props}
       ref={ref => { this.wrapper = ref; }}
     >
       {

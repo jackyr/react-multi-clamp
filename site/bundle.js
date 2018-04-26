@@ -17979,7 +17979,7 @@ var Clamp = (_temp = _class = function (_React$Component) {
   _createClass(Clamp, [{
     key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
-      if (!nextState.ellipsisInit) return true;
+      if (this.state.ellipsisInit && !nextState.ellipsisInit) return true;
       return this.diffChildren(nextProps, this.props);
     }
   }, {
@@ -18019,21 +18019,20 @@ var Clamp = (_temp = _class = function (_React$Component) {
       var _this3 = this;
 
       var _props = this.props,
-          className = _props.className,
-          style = _props.style,
           children = _props.children,
           ellipsis = _props.ellipsis;
 
-
+      var props = _extends({}, this.props);
+      'key|ellipsis|clamp|reverse|splitByWords|disableCssClamp|lineTextLen'.split('|').forEach(function (v) {
+        return delete props[v];
+      });
       return _react2.default.createElement(
         'div',
-        {
-          className: className,
-          style: style,
+        _extends({}, props, {
           ref: function ref(_ref2) {
             _this3.wrapper = _ref2;
           }
-        },
+        }),
         this.state.ellipsisInit ? _react2.default.createElement(
           'div',
           {
@@ -18050,8 +18049,6 @@ var Clamp = (_temp = _class = function (_React$Component) {
 
   return Clamp;
 }(_react2.default.Component), _class.propTypes = {
-  className: _propTypes2.default.any,
-  style: _propTypes2.default.any,
   children: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]))]),
   ellipsis: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
   clamp: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
