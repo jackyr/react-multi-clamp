@@ -26,6 +26,8 @@ const Clamp = class extends React.Component {
       PropTypes.string,
       PropTypes.number,
     ]),
+    onClampStart: PropTypes.func,
+    onClampEnd: PropTypes.func,
   }
   static defaultProps = {
     ellipsis: '...',
@@ -71,7 +73,8 @@ const Clamp = class extends React.Component {
   render() {
     const { children, ellipsis } = this.props;
     const props = { ...this.props };
-    'key|ellipsis|clamp|reverse|splitByWords|disableCssClamp|lineTextLen'.split('|').forEach(v => delete props[v]);
+    'key|ellipsis|clamp|reverse|splitByWords|disableCssClamp|lineTextLen|onClampStart|onClampEnd'
+      .split('|').forEach(v => delete props[v]);
     return (<div
       {...props}
       ref={ref => { this.wrapper = ref; }}

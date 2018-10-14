@@ -40,6 +40,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
+    "rc-tooltip": "^3.7.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "style-loader": "^0.19.0",
@@ -47,7 +48,7 @@
     "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
-    "multi-clamp": "^1.0.2",
+    "multi-clamp": "^1.1.0",
     "prop-types": "^15.6.0"
   }
 }

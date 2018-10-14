@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MultiClamp from '../src/MultiClamp.jsx';
+import MultiClampWithTooltip from './MultiClampWithTooltip.jsx';
 import './App.css';
 
 const text1 = 'React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.';
@@ -19,12 +20,18 @@ class App extends Component {
       });
     }, 2000);
   }
+  onClampStart(e) {
+    console.log(e);
+  }
+  onClampEnd(e) {
+    console.log(e);
+  }
   render() {
     return (
       <div className="App">
         <MultiClamp>{text1}</MultiClamp>
         <br />
-        <MultiClamp disableCssClamp>{text1}</MultiClamp>
+        <MultiClamp disableCssClamp onClampStart={this.onClampStart} onClampEnd={this.onClampEnd}>{text1}</MultiClamp>
         <br />
         <MultiClamp clamp={2} ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>} splitByWords>{text1}</MultiClamp>
         <br />
@@ -33,6 +40,8 @@ class App extends Component {
         <MultiClamp clamp="auto" style={{ height: '96px' }}>{text2}</MultiClamp>
         <br />
         <MultiClamp splitByWords>{this.state.text}</MultiClamp>
+        <br />
+        <MultiClampWithTooltip>{'Hover on me: ' + text1}</MultiClampWithTooltip>
       </div>
     );
   }

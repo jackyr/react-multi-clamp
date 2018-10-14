@@ -85,6 +85,16 @@ React-multi-clamp will use native css clamp(-webkit-line-clamp) in supported bro
 
 当ellipsis被设置为'...'时，组件会默认优先使用webkit的原生css裁剪（-webkit-line-clamp），如果想禁用css裁减，请将disableCssClamp设置为true。默认为：false
 
+#### `onClampStart`: function({ needClamp: boolean }): void || false
+This callback function will be executed when clamp starts, and will not be executed when use native css clamp. Clamp will be prevented when return value is false. default: function() {}
+
+该回调函数在clamp开始时触发，使用原生css裁剪时不会触发。返回值为false时强制不进行clamp。默认为：function() {}
+
+#### `onClampEnd`: function({ didClamp: boolean }): void
+This callback function will be executed when clamp ends, and will not be executed when use native css clamp. default: function() {}
+
+该回调函数在clamp结束时触发，使用原生css裁剪时不会触发。默认为：function() {}
+
 ## testing
 ```sh
 git clone git@github.com:jackyr/react-multi-clamp.git
