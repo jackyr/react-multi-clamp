@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       text: text1,
+      style: { height: 48 },
     }
   }
   componentDidMount() {
@@ -18,7 +19,14 @@ class App extends Component {
       this.setState({
         text: 'When text changes example: ' + this.state.text,
       });
-    }, 2000);
+    }, 3000);
+    setTimeout(() => {
+      this.setState({
+        style: { height: 72 },
+      }, () => {
+        this.instance.multiClamp.reload({ useOriginalText: true });
+      });
+    }, 3000);
   }
   onClampStart(e) {
     console.log(e);
@@ -40,6 +48,8 @@ class App extends Component {
         <MultiClamp clamp="auto" style={{ height: '96px' }}>{text2}</MultiClamp>
         <br />
         <MultiClamp splitByWords>{this.state.text}</MultiClamp>
+        <br />
+        <MultiClamp clamp="auto" style={this.state.style} ref={ref => this.instance = ref}>{'When style changes example: ' + text1}</MultiClamp>
         <br />
         <MultiClampWithTooltip>{'Hover on me: ' + text1}</MultiClampWithTooltip>
       </div>

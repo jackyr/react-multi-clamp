@@ -42,10 +42,6 @@ const Clamp = class extends React.Component {
       ellipsisInit: true,
     };
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.ellipsisInit && !nextState.ellipsisInit) return true;
-    return this.diffChildren(nextProps, this.props);
-  }
   componentDidMount() {
     const ellipsisHtm = this.ellipsis.innerHTML;
     this.setState({

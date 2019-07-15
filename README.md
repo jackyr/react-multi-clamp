@@ -95,13 +95,18 @@ This callback function will be executed when clamp ends, and will not be execute
 
 该回调函数在clamp结束时触发，使用原生css裁剪时不会触发。默认为：function() {}
 
-## testing
+## Testing
 ```sh
 git clone git@github.com:jackyr/react-multi-clamp.git
 cd react-multi-clamp
 npm install
 npm start
 ```
+
+## Changelog
+#### v2.0.0
+- Dependency [multi-clamp](https://github.com/jackyr/multi-clamp) update to v2.0, refactoring. [multi-clamp#3](https://github.com/jackyr/multi-clamp/issues/3)
+- 依赖[multi-clamp](https://github.com/jackyr/multi-clamp)升级至v2.0，其内部实现重构。[multi-clamp#3](https://github.com/jackyr/multi-clamp/issues/3)
 
 ## License
 MIT
