@@ -1,11 +1,8 @@
 var path = require("path");
-var webpack = require("webpack");
 
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    main: path.resolve(__dirname, "example/main.jsx")
-  },
+  entry: ['@babel/polyfill', path.resolve(__dirname, "example/main.jsx")],
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/assets/",

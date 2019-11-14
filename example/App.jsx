@@ -34,6 +34,12 @@ class App extends Component {
   onClampEnd(e) {
     console.log(e);
   }
+  handleClick = () => {
+    this.instance2.multiClamp.reload({
+      clamp: 'auto',
+      useOriginalText: true,
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -41,7 +47,9 @@ class App extends Component {
         <br />
         <MultiClamp disableCssClamp onClampStart={this.onClampStart} onClampEnd={this.onClampEnd}>{text1}</MultiClamp>
         <br />
-        <MultiClamp clamp={2} ellipsis={<a style={{ color: 'blue', paddingLeft: '5px' }}>more>></a>} splitByWords>{text1}</MultiClamp>
+        <MultiClamp clamp={2} ellipsis={
+          <a style={{ color: 'blue', marginLeft: '5px', cursor: 'pointer' }} onClick={this.handleClick}>more>></a>
+        } splitByWords ref={ref => this.instance2 = ref}>{text1}</MultiClamp>
         <br />
         <MultiClamp clamp={1} ellipsis="……" reverse>{text2}</MultiClamp>
         <br />

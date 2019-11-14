@@ -38,18 +38,27 @@ const Clamp = class extends React.Component {
   }
   constructor(props) {
     super(props);
+    const ellipsisElementMode = React.isValidElement(this.props.ellipsis) && React.Children.count(this.props.ellipsis) === 1;
     this.state = {
-      ellipsisInit: true,
+      ellipsisInit: !ellipsisElementMode,
+      ellipsisElementMode,
     };
   }
   componentDidMount() {
-    const ellipsisHtm = this.ellipsis.innerHTML;
+    let ellipsis;
+
+    if (this.state.ellipsisElementMode) {
+      ellipsis = this.wrapper.previousElementSibling || this.wrapper.previousSibling;
+    } else {
+      ellipsis = this.ellipsis.innerHTML;
+    }
+
     this.setState({
       ellipsisInit: false,
     }, () => {
       this.multiClamp = new MultiClamp(this.wrapper, {
         ...this.props,
-        ellipsis: ellipsisHtm,
+        ellipsis,
       });
     });
   }
@@ -69,19 +78,24 @@ const Clamp = class extends React.Component {
   render() {
     const { children, ellipsis } = this.props;
     const props = { ...this.props };
+
     'key|ellipsis|clamp|reverse|splitByWords|disableCssClamp|lineTextLen|onClampStart|onClampEnd'
       .split('|').forEach(v => delete props[v]);
-    return (<div
-      {...props}
-      ref={ref => { this.wrapper = ref; }}
-    >
-      {
-        this.state.ellipsisInit ? <div
-          style={{ display: 'none' }}
-          ref={ref => { this.ellipsis = ref; }}
-        >{ellipsis}</div> : children
-      }
-    </div>);
+
+    return (<>
+      {this.state.ellipsisElementMode && ellipsis}
+      <div
+        {...props}
+        ref={ref => { this.wrapper = ref; }}
+      >
+        {
+          this.state.ellipsisInit ? <div
+            style={{ display: 'none' }}
+            ref={ref => { this.ellipsis = ref; }}
+          >{ellipsis}</div> : children
+        }
+      </div>
+    </>);
   }
 };
 

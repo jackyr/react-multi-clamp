@@ -1,2 +1,10 @@
-*
-!src/
+build/
+example/
+site/
+lib/
+.babelrc
+.eslintignore
+.eslintrc
+.gitignore
+.npmignore
+webpack.config.js

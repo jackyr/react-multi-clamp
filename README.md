@@ -104,6 +104,10 @@ npm start
 ```
 
 ## Changelog
+#### v2.0.1
+- Bugfix when passing element object to option ellipsis. [#3](https://github.com/jackyr/react-multi-clamp/issues/3)
+- 裁剪符号为react元素时bug修正。[#3](https://github.com/jackyr/react-multi-clamp/issues/3)
+
 #### v2.0.0
 - Dependency [multi-clamp](https://github.com/jackyr/multi-clamp) update to v2.0, refactoring. [multi-clamp#3](https://github.com/jackyr/multi-clamp/issues/3)
 - 依赖[multi-clamp](https://github.com/jackyr/multi-clamp)升级至v2.0，其内部实现重构。[multi-clamp#3](https://github.com/jackyr/multi-clamp/issues/3)

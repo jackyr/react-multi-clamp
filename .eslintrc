@@ -2,7 +2,7 @@
     "env": {
         "browser": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parser": "babel-eslint",
     "rules": {
         "strict": 0,
