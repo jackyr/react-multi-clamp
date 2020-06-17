@@ -56,9 +56,18 @@ const Clamp = class extends React.Component {
     this.setState({
       ellipsisInit: false,
     }, () => {
+      const self = this;
       this.multiClamp = new MultiClamp(this.wrapper, {
         ...this.props,
         ellipsis,
+        onClampEnd(...args) {
+          if (ellipsis === (self.wrapper.previousElementSibling || self.wrapper.previousSibling)) {
+            self.wrapper.parentNode.removeChild(ellipsis);
+          }
+          if (self.props.onClampEnd) {
+            self.props.onClampEnd.apply(this, args);
+          }
+        },
       });
     });
   }

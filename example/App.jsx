@@ -48,7 +48,7 @@ class App extends Component {
         <MultiClamp disableCssClamp onClampStart={this.onClampStart} onClampEnd={this.onClampEnd}>{text1}</MultiClamp>
         <br />
         <MultiClamp clamp={2} ellipsis={
-          <a style={{ color: 'blue', marginLeft: '5px', cursor: 'pointer' }} onClick={this.handleClick}>more>></a>
+          <a style={{ color: 'blue', marginLeft: '5px', cursor: 'pointer' }} onClick={this.handleClick}>more&gt;&gt;</a>
         } splitByWords ref={ref => this.instance2 = ref}>{text1}</MultiClamp>
         <br />
         <MultiClamp clamp={1} ellipsis="……" reverse>{text2}</MultiClamp>
