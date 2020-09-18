@@ -51,9 +51,9 @@ Import react-multi-clamp.
 import MultiClamp from 'react-multi-clamp';
 ```
 
-Just wrap the content in react-multi-clamp component.
+Just wrap the content(**must be pure text**) in react-multi-clamp component.
 
-将要裁减的内容包裹起来即可。
+将要裁减的内容（**必须为纯文本**）包裹起来即可。
 
 ```html 
 <MultiClamp ellipsis="..." clamp={3}>{longText}</MultiClamp>
