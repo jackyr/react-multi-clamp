@@ -6,6 +6,7 @@ const Clamp = class extends React.Component {
   static propTypes = {
     children: PropTypes.oneOfType([
       PropTypes.string,
+      PropTypes.node,
       PropTypes.arrayOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
