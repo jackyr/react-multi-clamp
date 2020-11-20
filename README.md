@@ -104,6 +104,8 @@ npm start
 ```
 
 ## Changelog
+#### v2.0.3
+- Allow childen be passed as node type
 #### v2.0.2
 - Bugfix when passing element object to option ellipsis. [#5](https://github.com/jackyr/react-multi-clamp/issues/5)
 - 裁剪符号为react元素时bug修正。[#5](https://github.com/jackyr/react-multi-clamp/issues/5)
