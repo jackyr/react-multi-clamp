@@ -104,6 +104,10 @@ npm start
 ```
 
 ## Changelog
+#### v2.0.3
+- Add typescript definitions. [#8](https://github.com/jackyr/react-multi-clamp/pull/8)
+- 增加ts类型定义。 [#8](https://github.com/jackyr/react-multi-clamp/pull/8)
+
 #### v2.0.2
 - Bugfix when passing element object to option ellipsis. [#5](https://github.com/jackyr/react-multi-clamp/issues/5)
 - 裁剪符号为react元素时bug修正。[#5](https://github.com/jackyr/react-multi-clamp/issues/5)
