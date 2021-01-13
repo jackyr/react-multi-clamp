@@ -8,3 +8,4 @@ lib/
 .gitignore
 .npmignore
 webpack.config.js
+*.d.ts
