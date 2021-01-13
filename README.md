@@ -104,6 +104,10 @@ npm start
 ```
 
 ## Changelog
+#### v2.0.4
+- Typescript definitions bugfix. [#9](https://github.com/jackyr/react-multi-clamp/issues/9)
+- ts类型定义bug修正。 [#9](https://github.com/jackyr/react-multi-clamp/issues/9)
+
 #### v2.0.3
 - Add typescript definitions. [#8](https://github.com/jackyr/react-multi-clamp/pull/8)
 - 增加ts类型定义。 [#8](https://github.com/jackyr/react-multi-clamp/pull/8)

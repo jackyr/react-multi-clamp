@@ -1,6 +1,6 @@
 {
   "name": "react-multi-clamp",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Simple, efficient and easy-to-use multiline text clamp react component. (supports reverse clamp)",
   "main": "lib/MultiClamp.js",
   "scripts": {
