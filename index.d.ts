@@ -150,6 +150,8 @@ declare module "react-multi-clamp" {
     onClampEnd?: (result: { didClamp: boolean }) => void;
 
     ref?: React.Ref<MultiClampHTMLDivElement | undefined>;
+    
+    children?: React.ReactNode;
   };
 
   const Clamp: React.FC<ClampProps>;
