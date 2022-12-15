@@ -104,6 +104,10 @@ npm start
 ```
 
 ## Changelog
+#### v2.0.6
+- Bugfix when text changes immediately after mount. [#12](https://github.com/jackyr/react-multi-clamp/issues/12)
+- mount之后文本立即发生改变时bug修正。 [#12](https://github.com/jackyr/react-multi-clamp/issues/12)
+
 #### v2.0.5
 - Typescript definitions bugfix. [#11](https://github.com/jackyr/react-multi-clamp/pull/11)
 - ts类型定义bug修正。 [#11](https://github.com/jackyr/react-multi-clamp/pull/11)

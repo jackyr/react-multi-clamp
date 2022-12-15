@@ -72,7 +72,7 @@ const Clamp = class extends React.Component {
     });
   }
   componentDidUpdate(prevProps) {
-    if (this.diffChildren(this.props, prevProps)) {
+    if (this.multiClamp && this.diffChildren(this.props, prevProps)) {
       this.multiClamp.reload();
     }
   }
