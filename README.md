@@ -1,9 +1,16 @@
-# react-multi-clamp [![npm](https://img.shields.io/npm/v/react-multi-clamp.svg?style=flat-square)](https://www.npmjs.com/package/react-multi-clamp)
+# react-multi-clamp
+
+![NPM](https://img.shields.io/npm/l/react-multi-clamp)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-multi-clamp)
+![npm](https://img.shields.io/npm/dm/react-multi-clamp)
+[![npm](https://img.shields.io/npm/v/react-multi-clamp)](https://www.npmjs.com/package/react-multi-clamp)
+
 Simple, efficient and easy-to-use multiline text clamp react component. (supports reverse clamp)
 
 简单、高效、易用的多行文本裁剪react组件。（支持反向裁剪）
 
-Encapsulation based on [multi-clamp](https://github.com/jackyr/multi-clamp) module [![npm](https://img.shields.io/npm/v/multi-clamp.svg?style=flat-square)](https://www.npmjs.com/package/multi-clamp)
+Encapsulation based on [multi-clamp](https://github.com/jackyr/multi-clamp) module
+[![npm](https://img.shields.io/npm/v/multi-clamp)](https://www.npmjs.com/package/multi-clamp)
 
 本组件基于[multi-clamp](https://github.com/jackyr/multi-clamp)模块封装
 
@@ -29,7 +36,7 @@ Reverse clamp:
 [Demo Page](https://jackyr.github.io/react-multi-clamp/site/)
 
 ## Browser compatibility
-Supports IE9+ / Android4.4+ / etc. ES5 enviroment.
+Supports IE9+ / Android4.4+ / etc. ES5 environment.
 
 支持PC/移动设备所有兼容ES5环境的浏览器。
 
